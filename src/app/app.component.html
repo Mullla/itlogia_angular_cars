@@ -1,7 +1,7 @@
 <header class="header">
   <div class="container header-container">
     <a href="#" class="header-logo">
-      <img src="../assets/img/logo.png" alt="лого: Luxorides" class="logo">
+      <img src="/assets/img/logo.png" alt="лого: Luxorides" class="logo">
     </a>
 
     <nav class="nav">
@@ -27,24 +27,24 @@
 
   <ul class="cars-list">
     <li class="car" *ngFor="let car of carsData">
-      <img src="../assets/img/{{ car.image }}" alt="{{ car.name }}" class="car-img">
+      <img src="/assets/img/{{ car.image }}" alt="{{ car.name }}" class="car-img">
       <h3 class="car-name">{{ car.name }}</h3>
 
       <ul class="car-info">
         <li class="feature">
-          <img src="../assets/img/gear.svg" alt="шестеренка" class="feature-icon">
+          <img src="/assets/img/gear.svg" alt="шестеренка" class="feature-icon">
           <span class="feature-title">Привод</span>
           <span class="feature-details">{{ car.gear }}</span>
         </li>
 
         <li class="feature">
-          <img src="../assets/img/wheel.svg" alt="колесо" class="feature-icon">
+          <img src="/assets/img/wheel.svg" alt="колесо" class="feature-icon">
           <span class="feature-title">Двигатель</span>
           <span class="feature-details">{{ car.engine }} л.с.</span>
         </li>
 
         <li class="feature">
-          <img src="../assets/img/belt.svg" alt="пристегнутый человек" class="feature-icon">
+          <img src="/assets/img/belt.svg" alt="пристегнутый человек" class="feature-icon">
           <span class="feature-title">Кол-во мест</span>
           <span class="feature-details">{{ car.seats }}</span>
         </li>
@@ -96,13 +96,13 @@
       >Спасибо за вашу заявку, мы скоро с вами свяжемся!</span>
     </form>
 
-    <img src="../assets/img/rolls.png" alt="Rolls-Royce" class="order-img" [ngStyle]="trans">
+    <img src="/assets/img/rolls.png" alt="Rolls-Royce" class="order-img" [ngStyle]="trans">
   </div>
 </section>
 
 <footer class="footer">
   <div class="container footer-container">
-    <img src="../assets/img/logo.png" alt="лого: Luxorides" class="logo">
+    <img src="/assets/img/logo.png" alt="лого: Luxorides" class="logo">
     <span class="footer-copyright">Все права защищены</span>
   </div>
 </footer>
