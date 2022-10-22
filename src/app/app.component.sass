@@ -1,0 +1,240 @@
+/* common */
+
+.btn
+  display: flex
+  justify-content: center
+  border: 1px solid transparent
+  background-color: #030305
+  color: #fff
+  font-family: inherit
+  font-weight: 700
+  font-size: 16px
+  line-height: 150%
+  text-align: center
+  letter-spacing: 0.02em
+  text-transform: uppercase
+  padding: 15px
+  transition: all 0.5s ease-in-out
+  cursor: pointer
+
+  &:not(:disabled):hover
+    background-color: #fff
+    color: #030305
+    transform: scale(1.05)
+    border-color: #030305
+
+  &:disabled
+    cursor: not-allowed
+    color: #5D5D5F
+    background-color: #343434
+
+.container
+  max-width: 1200px
+  margin: 0 auto
+
+.subtitle
+  font-weight: 700
+  font-size: 60px
+  line-height: 70px
+
+.section
+  margin-bottom: 100px
+
+/* header */
+
+.header
+  width: 100%
+  padding: 25px 0
+  border-bottom: 1px solid #E5E5E5
+
+  &-container
+    display: flex
+    align-items: center
+
+  &-logo
+    display: flex
+    margin-right: 244px
+
+.logo
+  width: 113px
+
+.nav
+  display: flex
+  align-items: center
+
+  &-link
+    font-size: 15px
+    line-height: 18px
+    transition: all 0.3s ease-in-out
+    border-bottom: 2px solid transparent
+
+    &:not(:last-of-type)
+      margin-right: 115px
+
+    &:hover
+      border-color: #030305
+
+/* promo */
+
+.promo
+  background-image: url('../assets/img/background.png')
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  padding: 104px 0 154px
+
+  &-container
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+
+  &-title
+    font-weight: 700
+    font-size: 80px
+    line-height: 110%
+    margin-bottom: 40px
+
+  &-description
+    font-weight: 400
+    font-size: 16px
+    line-height: 130%
+    margin-bottom: 40px
+    max-width: 502px
+
+  &-btn
+    width: 334px
+    padding: 20px
+
+/* cars */
+
+.cars-title
+  margin-bottom: 40px
+
+.cars-list
+  display: grid
+  gap: 40px 24px
+  grid-template-columns: repeat(3, 1fr)
+
+.car
+  display: flex
+  flex-direction: column
+
+  &-img
+    width: 100%
+    object-fit: contain
+    margin-bottom: 15px
+    transition: all .3s ease-in-out
+
+    &:hover
+      transform: scale(1.1)
+
+  &-name
+    font-weight: 700
+    font-size: 24px
+    line-height: 150%
+    text-align: center
+    letter-spacing: 0.02em
+    margin-bottom: 17px
+
+  &-info
+    margin: 0 12px 13px
+    display: flex
+    justify-content: space-between
+
+.feature
+  display: flex
+  flex-direction: column
+  align-items: center
+  width: 110px
+
+  &-icon
+    width: 35px
+    height: 35px
+    margin-bottom: 11px
+
+  &-title
+    font-weight: 700
+    font-size: 16px
+    line-height: 130%
+    text-align: center
+    letter-spacing: 0.02em
+
+  &-details
+    font-weight: 400
+    font-size: 16px
+    line-height: 130%
+    text-align: center
+    letter-spacing: 0.02em
+
+/* order */
+
+.order
+  overflow: hidden
+
+  &-container
+    position: relative
+    padding-bottom: 121px
+
+  &-img
+    position: absolute
+    bottom: 0
+    left: 401px
+
+  &-title
+    margin-bottom: 20px
+
+  &-subtitle
+    font-weight: 400
+    font-size: 16px
+    line-height: 130%
+    color: #5D5D5F
+    margin-bottom: 60px
+
+  &-form
+    display: flex
+    flex-direction: column
+    max-width: 344px
+
+  &-input
+    margin-bottom: 15px
+    padding: 22px 18px
+    background: #FFFFFF
+    border: 1px solid #5D5D5F
+    color: inherit
+    font-weight: 400
+    font-size: 16px
+    line-height: 130%
+    outline: #627819
+
+    &::placeholder
+      color: #5D5D5F
+
+    &.ng-touched.ng-valid
+      border-color: #5D5D5F
+
+    &.ng-touched.ng-invalid
+      border-color: crimson
+
+  &-btn
+    padding: 20px
+
+  &-error
+    color: crimson
+    margin-bottom: 20px
+    margin-top: -10px
+
+  &-success
+    color: #627819
+    margin-top: 10px
+
+/* footer */
+
+.footer
+  padding: 25px 0
+  border-top: 1px solid #E5E5E5
+
+  &-container
+    display: flex
+    align-items: center
+    justify-content: space-between
+
