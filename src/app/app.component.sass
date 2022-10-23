@@ -106,6 +106,10 @@
     padding: 20px
 
 /* cars */
+.cars-header
+  display: flex
+  align-items: flex-start
+  justify-content: space-between
 
 .cars-title
   margin-bottom: 40px
@@ -114,6 +118,29 @@
   display: grid
   gap: 40px 24px
   grid-template-columns: repeat(3, 1fr)
+
+.cars-toggle
+  display: flex
+  width: fit-content
+  max-width: 210px
+  border: 1px solid #5D5D5F
+
+  button
+    border: none
+    padding: 20px
+    background-color: white
+    text-align: center
+    font-weight: 700
+    font-size: 16px
+    letter-spacing: 0.02em
+    text-transform: uppercase
+    color: black
+    transition: background-color .5s
+    cursor: pointer
+
+    &.active
+      background-color: #030305
+      color: #fff
 
 .car
   display: flex
@@ -222,6 +249,11 @@
     color: crimson
     margin-bottom: 20px
     margin-top: -10px
+
+    &-msg
+      color: crimson
+      margin-top: 10px
+      margin-bottom: 0
 
   &-success
     color: #627819

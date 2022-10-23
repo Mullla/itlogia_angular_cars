@@ -1,11 +1,13 @@
 import {Component, HostListener} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
+import {AppService} from "./app.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
+
 export class AppComponent {
   title = 'cars-app';
 
@@ -15,54 +17,18 @@ export class AppComponent {
     car: ['', Validators.required],
   });
 
-  isSubmitSuccess = false;
+  successMessage: null | string = null;
+  errorMessage: null | string = null;
 
-  carsData = [
-    {
-      image: '1.png',
-      name: 'Lamborghini Huracan Spyder',
-      gear: 'полный',
-      engine: 5.2,
-      seats: 2
-    },
-    {
-      image: '2.png',
-      name: 'Chevrolet Corvette',
-      gear: 'полный',
-      engine: 6.2,
-      seats: 2
-    },
-    {
-      image: '3.png',
-      name: 'Ferrari California',
-      gear: 'полный',
-      engine: 3.9,
-      seats: 4
-    },
-    {
-      image: '4.png',
-      name: 'Lamborghini Urus',
-      gear: 'полный',
-      engine: 4.0,
-      seats: 5
-    },
-    {
-      image: '5.png',
-      name: 'Audi R8',
-      gear: 'полный',
-      engine: 5.2,
-      seats: 2
-    },
-    {
-      image: '6.png',
-      name: 'Chevrolet Camaro',
-      gear: 'полный',
-      engine: 2.0,
-      seats: 4
-    }
-  ];
+  carsData: any;
 
-  constructor(private fb: FormBuilder) {
+  category: string = 'sport';
+
+  constructor(private fb: FormBuilder, private appService: AppService) {
+  }
+
+  ngOnInit() {
+    this.appService.getData(this.category).subscribe(carsData => this.carsData = carsData);
   }
 
   scrollToElem(target: HTMLElement, value?: string) {
@@ -71,6 +37,11 @@ export class AppComponent {
     if (value) {
       this.orderForm.patchValue({car: value});
     }
+  }
+
+  toggleCategory(category: string) {
+    this.category = category;
+    this.ngOnInit();
   }
 
   get _name() {
@@ -101,9 +72,17 @@ export class AppComponent {
 
   onSubmit() {
     if (this.orderForm.valid) {
-      this.isSubmitSuccess = true;
+      this.appService.sendQuery(this.orderForm.value)
+        .subscribe(
+          {
+            next: (response: any) => {
+              this.successMessage = response.message;
+              this.orderForm.reset();
+            },
+            error: (response) => {
+              this.errorMessage = response.error.message;
+            }
+          });
     }
-
-    this.orderForm.reset();
   }
 }

@@ -23,11 +23,17 @@
 </section>
 
 <section class="section cars container" id="cars" #cars>
-  <h2 class="subtitle cars-title">Наш автопарк</h2>
+  <div class="cars-header">
+    <h2 class="subtitle cars-title">Наш автопарк</h2>
+    <div class="cars-toggle">
+      <button [ngClass]="{active: category === 'sport'}" (click)="toggleCategory('sport')">Sport</button>
+      <button [ngClass]="{active: category === 'luxury'}" (click)="toggleCategory('luxury')">Luxury</button>
+    </div>
+  </div>
 
   <ul class="cars-list">
     <li class="car" *ngFor="let car of carsData">
-      <img src="assets/img/{{ car.image }}" alt="{{ car.name }}" class="car-img">
+      <img src="{{ car.image }}" alt="{{ car.name }}" class="car-img">
       <h3 class="car-name">{{ car.name }}</h3>
 
       <ul class="car-info">
@@ -46,7 +52,7 @@
         <li class="feature">
           <img src="assets/img/belt.svg" alt="пристегнутый человек" class="feature-icon">
           <span class="feature-title">Кол-во мест</span>
-          <span class="feature-details">{{ car.seats }}</span>
+          <span class="feature-details">{{ car.places }}</span>
         </li>
       </ul>
       <button class="btn car-btn" (click)="scrollToElem(order, car.name)">Забронировать</button>
@@ -92,8 +98,10 @@
         [disabled]="!orderForm.valid"
       >Узнать цену
       </button>
-      <span class="order-success" *ngIf="isSubmitSuccess"
-      >Спасибо за вашу заявку, мы скоро с вами свяжемся!</span>
+      <span class="order-success" *ngIf="successMessage"
+      >{{ successMessage }}</span>
+      <span class="order-error-msg" *ngIf="errorMessage"
+      >{{ errorMessage }}</span>
     </form>
 
     <img src="assets/img/rolls.png" alt="Rolls-Royce" class="order-img" [ngStyle]="trans">
